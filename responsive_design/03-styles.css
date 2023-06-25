@@ -73,7 +73,6 @@
     --footer-padding: 5rem 0 1rem;
   
     /** NAVBAR **/
-    --nav-item-margin:0;
     --nav-item-font-family: var(--font-family-headings);
     --nav-item-font-weight: var(--font-weight-bold);
     --nav-item-font-size: var(--font-size-medium);
@@ -97,15 +96,7 @@
     --transition-duration: .3s;
     --transition-cubic-bezier: cubic-bezier(0.17, 0.67, 0, 1.01);
   }
-  navbar-menu{
-    flex:1;
-  }
-  nav{
-    flex-direction:column;
-    overflow: hidden;
-    max-height: 0;
-    transition:max-height .2s ease-out
-  }
+  
   /* Base
       ============================= */
   
