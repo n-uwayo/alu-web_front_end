@@ -130,7 +130,31 @@
     font-family: var(--font-family-title);
     font-weight: var(--font-weight-bold);
   }
-  
+.header .menu-icon{
+  cursor: pointer;
+ padding: 2.5rem;
+ position: relative;
+user-select: none;
+
+}
+.header .menu-icon .navicon{
+  background: point to the color-white variable;
+ display: block;
+ width: 2rem;
+height: .2rem;
+ position: relative;
+ transition: background .2s ease-out;
+} .header .menu-icon .navicon::before, .header .menu-icon .navicon::after{
+    content: empty string;
+ display: block;
+ width: 100%;
+ height: 100%;
+ position: absolute;
+ background: point to the color-white variable;
+ transition: all .2s ease-out;
+     top: .7rem;
+     top: -.7rem;
+  }
   a {
     color: var(--text-color);
     text-decoration: none;
