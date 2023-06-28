@@ -114,8 +114,14 @@
   }
   
   html {
+    max-width: 480px;
   scroll-behavior: smooth;
   font-size: 62.5%;
+  font-size: 57%;
+  min-width: 481px;
+  max-width: 767px;
+  font-size: 60%;
+
   }
   
   body {
