@@ -734,6 +734,9 @@ height: .2rem;
   }
   
   .card-work .card-inner {
+    max-width: 767px;
+    text-color: point to color-white;
+    position: relative;
     position: absolute;
     top: -0.1rem;
     left: -0.1rem;
@@ -748,6 +751,7 @@ height: .2rem;
   }
   
   .card-work .card-title {
+    opacity: 1;
     text-align: center;
     margin: 0;
     opacity: 0;
@@ -759,6 +763,7 @@ height: .2rem;
     display: block;
     text-decoration: none;
     padding-top: 45%;
+    padding: 2rem 1rem 0 1rem;
   }
   
   .card-work .card-title a::after {
