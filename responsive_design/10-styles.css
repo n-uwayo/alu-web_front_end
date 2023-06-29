@@ -671,7 +671,7 @@ height: .2rem;
   .section-hero .section-title {
     margin-bottom: 5rem;
   }
-  section-hero .article-page{
+  .article-page .section-hero {
     margin-top: -8.5rem;
     padding-top: 5rem;
   }
