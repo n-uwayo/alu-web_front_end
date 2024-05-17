@@ -1,6 +1,6 @@
 #  Advanced CSS
 
-## Description:bulb:
+## Description:
 How to create a website, add HTML to it, and add CSS to it
 
 ---
