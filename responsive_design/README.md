@@ -1,7 +1,7 @@
 ## responsive_design
 
 ## Learning Objectives
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+At the end of this project, it is expected to be able  explaining to anyone, without the help of Google:
 
 Mobile-first design
 Media-queries
