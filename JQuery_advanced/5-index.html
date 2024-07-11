@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Task 5</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha384-QgBp6KQD/ywzQyVtQ/8qGwhMfHzP23T3uWh9hc8slGOvK5k2mO+34rHYIdwhVBeR" crossorigin="anonymous"></script>
+    <style>
+        .remove-cell {
+            background-color: orange;
+            cursor: pointer;
+        }
+    </style>
+    <script type="application/javascript">
+        $(document).ready(function() {
+            function createFamilyTree() {
+                $("body").append(`
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Guillaume</td>
+                                <td>Salva</td>
+                                <td class="remove-cell">(x)</td>
+                            </tr>
+                            <tr>
+                                <td>Arielle</td>
+                                <td>Snizt</td>
+                                <td class="remove-cell">(x)</td>
+                            </tr>
+                            <tr>
+                                <td>Fanette</td>
+                                <td>Snizt</td>
+                                <td class="remove-cell">(x)</td>
+                            </tr>
+                            <tr>
+                                <td>Gerard</td>
+                                <td>Snizt</td>
+                                <td class="remove-cell">(x)</td>
+                            </tr>
+                            <tr>
+                                <td>Victor</td>
+                                <td>Salva</td>
+                                <td class="remove-cell">(x)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                `);
+            }
+
+            // Create the family tree table
+            createFamilyTree();
+
+            // Handle click event on dynamically added (x) cells
+            $("body").on("click", ".remove-cell", function() {
+                $(this).closest("tr").remove();
+            });
+
+            // Apply CSS to the (x) cells
+            $("body").on("mouseenter", ".remove-cell", function() {
+                $(this).css("background-color", "orange");
+            }).on("mouseleave", ".remove-cell", function() {
+                $(this).css("background-color", "");
+            });
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

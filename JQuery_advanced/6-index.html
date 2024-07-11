@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Task 6</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha384-QgBp6KQD/ywzQyVtQ/8qGwhMfHzP23T3uWh9hc8slGOvK5k2mO+34rHYIdwhVBeR" crossorigin="anonymous"></script>
+    <style>
+        .remove-cell {
+            background-color: orange;
+            cursor: pointer;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        form input[type="text"], form select, form input[type="submit"] {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script type="application/javascript">
+        $(document).ready(function() {
+            function createFamilyTree() {
+                $("body").append(`
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Guillaume</td>
+                                <td>Salva</td>
+                                <td class="remove-cell">(x)</td>
+                            </tr>
+                            <tr>
+                                <td>Arielle</td>
+                                <td>Snizt</td>
+                                <td class="remove-cell">(x)</td>
+                            </tr>
+                            <tr>
+                                <td>Fanette</td>
+                                <td>Snizt</td>
+                                <td class="remove-cell">(x)</td>
+                            </tr>
+                            <tr>
+                                <td>Gerard</td>
+                                <td>Snizt</td>
+                                <td class="remove-cell">(x)</td>
+                            </tr>
+                            <tr>
+                                <td>Victor</td>
+                                <td>Salva</td>
+                                <td class="remove-cell">(x)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                `);
+            }
+
+            function addNewMember(firstName, lastName, position) {
+                if (position === 'before') {
+                    $("tbody").prepend(`
+                        <tr>
+                            <td>${firstName}</td>
+                            <td>${lastName}</td>
+                            <td class="remove-cell">(x)</td>
+                        </tr>
+                    `);
+                } else {
+                    $("tbody").append(`
+                        <tr>
+                            <td>${firstName}</td>
+                            <td>${lastName}</td>
+                            <td class="remove-cell">(x)</td>
+                        </tr>
+                    `);
+                }
+            }
+
+            function createForm() {
+                $("table").before(`
+                    <form>
+                        <input type="text" placeholder="First name">
+                        <input type="text" placeholder="Last name">
+                        <select>
+                            <option value="before">Before</option>
+                            <option value="after">After</option>
+                        </select>
+                        <input type="submit" value="Add Member">
+                    </form>
+                `);
+
+                // Handle form submission
+                $("form").submit(function(event) {
+                    event.preventDefault();
+                    const firstName = $(this).find("input[type='text']:nth-of-type(1)").val();
+                    const lastName = $(this).find("input[type='text']:nth-of-type(2)").val();
+                    const position = $(this).find("select").val();
+
+                    addNewMember(firstName, lastName, position);
+                    $(this).find("input[type='text']").val(''); // Clear input fields after submission
+                });
+            }
+
+            createFamilyTree(); // Create the initial family tree table
+            createForm(); // Create the form for adding new members
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

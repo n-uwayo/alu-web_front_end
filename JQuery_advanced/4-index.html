@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Task 4</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha384-QgBp6KQD/ywzQyVtQ/8qGwhMfHzP23T3uWh9hc8slGOvK5k2mO+34rHYIdwhVBeR" crossorigin="anonymous"></script>
+    <script type="application/javascript">
+        $(document).ready(function() {
+            function createFamilyTree() {
+                $("body").append(`
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Guillaume</td>
+                                <td>Salva</td>
+                            </tr>
+                            <tr>
+                                <td>Paulette</td>
+                                <td>Salva</td>
+                            </tr>
+                            <tr>
+                                <td>Antoine</td>
+                                <td>Salva</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                `);
+            }
+
+            function replaceFamilyTree() {
+                $("tbody").html(`
+                    <tr>
+                        <td>Gerard</td>
+                        <td>Bonissa</td>
+                    </tr>
+                `);
+            }
+
+            createFamilyTree(); // Call to create the original family tree
+            replaceFamilyTree(); // Call to replace the tbody content
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

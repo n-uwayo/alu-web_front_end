@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Query</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+WUCmZOs5deJl+QgfZyoU4gQjcgInPvW/pG2hW0fc/EIs3f" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<script type="application/javascript">
+
+  // Function to add a new row for a post
+  function addPostRow(data) {
+    const paragraph = $("<p>").text(`Post created with id ${data.id}, title: ${data.title}, author: ${data.author}`);
+    $("body").append(paragraph);
+  }
+
+  // Function to list all posts from the server
+  function listPosts() {
+    $.get("http://localhost:3000/posts", function(response) {
+      response.forEach(function(post) {
+        addPostRow(post);
+      });
+    }).fail(function() {
+      alert("Server Error: Unable to fetch posts.");
+    });
+  }
+
+  // Function to build and handle form submission
+  function buildForm() {
+    const form = $("<form>");
+    
+    // Input for Author
+    const authorDiv = $("<div>");
+    const authorLabel = $("<label>").attr("for", "author").text("Author");
+    const authorInput = $("<input>").attr({ type: "text", id: "author", name: "author" });
+    authorDiv.append(authorLabel, authorInput);
+
+    // Input for Title
+    const titleDiv = $("<div>");
+    const titleLabel = $("<label>").attr("for", "title").text("Title");
+    const titleTextarea = $("<textarea>").attr({ id: "title", name: "title", rows: 3, cols: 30 });
+    titleDiv.append(titleLabel, titleTextarea);
+
+    // Submit Button
+    const submitBtn = $("<input>").attr({ type: "submit", value: "Submit" });
+
+    // Form Submission Handler
+    form.on("submit", function(event) {
+      event.preventDefault();
+
+      // Displaying message
+      $(this).after("<p>About to send the query to the API...</p>");
+
+      // Creating data object from form inputs
+      const formData = {
+        title: $("#title").val(),
+        author: $("#author").val()
+      };
+
+      // Sending POST request to server
+      $.post("http://localhost:3000/posts", formData, function(response) {
+        // On success, add new post row
+        addPostRow(response);
+      }).fail(function() {
+        // On failure, display error alert
+        alert("Error sending the POST query.");
+      });
+    });
+
+    form.append(authorDiv, titleDiv, submitBtn);
+    $("body").append(form);
+  }
+
+  $(document).ready(function() {
+    listPosts();   // Display existing posts on page load
+    buildForm();   // Build the form for adding new posts
+  });
+
+</script>
+
+</body>
+</html>
