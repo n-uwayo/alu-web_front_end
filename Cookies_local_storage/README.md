@@ -1,8 +1,8 @@
-#Cookies_local_storage
+# Cookies_local_storage
 
-##Resources
+## Resources
 
-###Read or watch:
+### Read or watch:
 
 .[Cookies and Javascript](https://www.w3schools.com/js/js_cookies.asp)
 
@@ -12,7 +12,7 @@
 
 .[Web storage](https://www.w3schools.com/html/html5_webstorage.asp)
 
-##Learning Objectives
+## Learning Objectives
 
 .Understand how to create cookies using Javascript
 
@@ -26,7 +26,7 @@
 
 .The differences between local storage and session storage
 
-##Requirements
+## Requirements
 
 .Allowed editors: vi, vim, emacs, Visual Studio Code
 
