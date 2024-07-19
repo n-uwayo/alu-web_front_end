@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Demo with Get Cookie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 8px;
+            width: 200px;
+            margin-right: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 8px 16px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        #cookieDisplay {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login to the website</h1>
+        <div class="input-group">
+            <input type="text" id="firstname" placeholder="Firstname">
+            <input type="text" id="email" placeholder="Email">
+            <button onclick="setCookies()">Log me in</button>
+        </div>
+        <h2>Cookies</h2>
+        <button onclick="showCookies()">Show the cookies</button>
+        <div id="cookieDisplay"></div>
+    </div>
+    <script>
+        // Function to set cookies
+        function setCookies() {
+            const firstname = document.getElementById('firstname').value;
+            const email = document.getElementById('email').value;
+
+            const date = new Date();
+            date.setTime(date.getTime() + (10 * 24 * 60 * 60 * 1000)); // 10 days in milliseconds
+            const expires = `expires=${date.toUTCString()}`;
+
+            document.cookie = `firstname=${firstname}; ${expires}; path=/`;
+            document.cookie = `email=${email}; ${expires}; path=/`;
+
+            alert('Cookies have been set!');
+        }
+
+        // Function to get a specific cookie by name
+        function getCookie(name) {
+            const cookies = document.cookie.split('; ');
+            for (let cookie of cookies) {
+                const [cookieName, cookieValue] = cookie.split('=');
+                if (cookieName === name) {
+                    return cookieValue;
+                }
+            }
+            return '';
+        }
+
+        // Function to show cookies
+        function showCookies() {
+            const firstname = getCookie('firstname');
+            const email = getCookie('email');
+
+            const p = document.createElement('p');
+            p.innerHTML = `Email: ${email} - Firstname: ${firstname}`;
+
+            const displayDiv = document.getElementById('cookieDisplay');
+            displayDiv.innerHTML = ''; // Clear previous content
+            displayDiv.appendChild(p);
+        }
+
+        // Export the functions to make them available in the HTML file
+        window.setCookies = setCookies;
+        window.getCookie = getCookie;
+        window.showCookies = showCookies;
+    </script>
+</body>
+</html>

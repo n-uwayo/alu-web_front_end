@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 8px;
+            width: 200px;
+            margin-right: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 8px 16px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        #cookieDisplay {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login to the website</h1>
+        <div class="input-group">
+            <input type="text" id="firstname" placeholder="Firstname">
+            <input type="text" id="email" placeholder="Email">
+            <button onclick="setCookies()">Log me in</button>
+        </div>
+        <h2>Cookies</h2>
+        <button onclick="showCookies()">Show the cookies</button>
+        <div id="cookieDisplay"></div>
+    </div>
+    <script src="src/index.js"></script>
+</body>
+</html>
